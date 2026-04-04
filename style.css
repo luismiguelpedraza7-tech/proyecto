@@ -10,37 +10,239 @@ h1 {
   font-family:'Pacifico', cursive;
   font-weight: bold;
   font-style: italic;
-  color: #271044;
+  color: #0c566c;
   text-align: center;
+}
+
+/* ESTILOS PARA LA PANTALLA DE INICIO CON FONDO */
+#pantalla-inicio {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://img.freepik.com/vector-premium/tecnologia-digital-compras-linea-icono-sobre-fondo-azul-marketing-tiendas-linea-comercio-electronico_252172-219.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Ajustes específicos para el h1 de la pantalla de inicio */
 #pantalla-inicio .title {
   margin-bottom: 30px;
-  margin-top: 200px;
+  margin-top: 3em;
+  color: #ccbbbb;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9);
+  font-size: 100px;
+  font-family:'Pacifico', cursive;
+  font-weight: bold;
+  font-style: italic;
+  line-height: 1.2;
 }
 
-/* Nuevo estilo para el h1 de la pantalla de inventario (ahora hijo directo) */
-#pantalla-INVENTARIO > h1 {
+/* NUEVOS ESTILOS PARA EL FONDO DE PANTALLA DE INVENTARIO Y SUS ELEMENTOS */
+#pantalla-INVENTARIO {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://image.slidesdocs.com/responsive-images/background/website-mobile-app-explore-the-world-of-virtual-shopping-with-digital-marketing-powerpoint-background_bb972eee09__960_540.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Ajustes específicos para los títulos dentro de la pantalla de inventario */
+#pantalla-INVENTARIO h1 {
+    font-size: 80px;
+    color: #fafcfd;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-family:'Pacifico', cursive;
+    font-weight: bold;
+    font-style: italic;
     line-height: 1.2;
+}
+
+/* General H2 para el inventario, ajustado para legibilidad en fondo oscuro */
+#pantalla-INVENTARIO h2 {
+    color: #E0E0E0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* FIX: Se ha aumentado la especificidad del selector para que el color #ebf6ec prevalezca */
+#pantalla-INVENTARIO #inventory-products-title {
+    font-size: 3em;
+    color: #edefed;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Estilos para las tarjetas de acciones (ahora transparentes con blur) */
+#pantalla-INVENTARIO .tarjeta-input-producto,
+#pantalla-INVENTARIO .search-section,
+#pantalla-INVENTARIO .inventory-summary-card,
+#pantalla-INVENTARIO .export-section {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+}
+
+/* Mantener .tarjeta-producto con su fondo original para visibilidad de productos */
+#pantalla-INVENTARIO .tarjeta-producto {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(221, 221, 221, 0.7);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    color: #353937;
+    backdrop-filter: blur(3px);
+}
+
+#pantalla-INVENTARIO .tarjeta-producto:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+/* Ajustar colores de texto y sombras para legibilidad en tarjetas transparentes */
+#pantalla-INVENTARIO .tarjeta-input-producto h2,
+#pantalla-INVENTARIO .search-section h2,
+#pantalla-INVENTARIO .inventory-summary-card h2 {
+    color: #E0E0E0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    width: 100%;
+    text-align: center;
+}
+
+/* Asegurar que el color de los labels dentro de la tarjeta de input sea oscuro */
+#pantalla-INVENTARIO .tarjeta-input-producto label {
+    color: #E0E0E0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Color para el contador de productos en la tarjeta de resumen */
+#pantalla-INVENTARIO .inventory-summary-card .summary-count {
+    font-size: 3em;
+    font-weight: bold;
+    color: #8be0ff;
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Ajustar los inputs dentro de las tarjetas de acciones para tener fondo sólido */
+#pantalla-INVENTARIO .tarjeta-input-producto input[type="text"],
+#pantalla-INVENTARIO .tarjeta-input-producto input[type="number"],
+#pantalla-INVENTARIO .search-input-group input[type="text"] {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+
+/* El fondo del header ahora es transparente para que el fondo de la pantalla se vea a través */
+#pantalla-INVENTARIO .inventory-header {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.7);
+}
+
+/* Ajustes para el botón de volver para que se vea bien sobre el fondo */
+#pantalla-INVENTARIO .boton-volver {
+    background-color: rgba(232, 132, 110, 0.85);
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    margin-top: 40px;
+}
+#pantalla-INVENTARIO .boton-volver:hover {
+    background-color: #c86350;
+}
+
+/* ANIMACIONES KEYFRAMES */
+@keyframes hoverBoton {
+  0% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  100% {
+    transform: translateY(-8px) scale(1.08);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+  }
+}
+
+@keyframes clickBoton {
+  0% {
+    transform: translateY(-8px) scale(1.08);
+  }
+  100% {
+    transform: translateY(2px) scale(1.02);
+  }
+}
+
+@keyframes rotateRing {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .boton {
   display: inline-block;
   margin: 3%;
   padding: 35px 25px;
-  color: rgb(13, 1, 26);
-  background-color: #00ffbf;
+  color: rgb(33, 16, 51);
+  background-color: #7ae4d6;
   text-decoration: none;
   border-radius: 150em;
   font-size: 40px;
   font-weight: bold;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .boton:hover {
   background-color: rgba(36, 160, 154, 0.766);
+  animation: hoverBoton 0.2s ease forwards;
+  filter: brightness(1.1);
+}
+
+.boton:active {
+  animation: clickBoton 0.1s ease forwards;
+  filter: brightness(0.95);
 }
 
 input[type="file"] {
@@ -57,7 +259,6 @@ input[type="file"] {
     width: 100%;
 }
 
-
 .tarjeta-producto {
     padding: 15px;
     border-radius: 5px;
@@ -69,6 +270,12 @@ input[type="file"] {
     flex-direction: column;
     align-items: center;
     background-color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.25);
 }
 
 .tarjeta-producto img {
@@ -81,14 +288,13 @@ input[type="file"] {
     border-radius: 10px;
 }
 
-/* REEMPLAZADO: Estilos para el título "Añadir Nuevo Producto" ahora dentro de .tarjeta-input-producto */
 .tarjeta-input-producto h2 {
     color: #353937;
-    margin-top: 0; /* Elimina margen superior si el padding de la tarjeta es suficiente */
+    margin-top: 0;
     margin-bottom: 15px;
     font-size: 1.8em;
-    width: 100%; /* Asegura que tome el ancho completo para centrar el texto */
-    text-align: center; /* Centra el texto dentro del h2 */
+    width: 100%;
+    text-align: center;
 }
 
 .tarjeta-input-producto {
@@ -118,22 +324,41 @@ input[type="file"] {
     border-radius: 4px;
     width: 150px;
     box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-input-producto input[type="text"]:focus,
+.tarjeta-input-producto input[type="number"]:focus {
+    outline: none;
+    border-color: #48a4aa;
+    box-shadow: 0 0 8px rgba(72, 164, 170, 0.5);
 }
 
 .btn-añadir {
     background-color: #48a4aa;
-    color:  rgb(18, 17, 18);
+    color: rgb(18, 17, 18);
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
     font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .btn-añadir:hover {
-  opacity: 0.9;
-  background-color: #47c8c8;
+    opacity: 0.9;
+    background-color: #47c8c8;
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.1);
+}
+
+.btn-añadir:active {
+    transform: translateY(2px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    filter: brightness(0.95);
 }
 
 .boton-volver {
@@ -145,13 +370,23 @@ input[type="file"] {
     cursor: pointer;
     margin-top: 50px;
     font-size: 18px;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .boton-volver:hover {
     background-color: #5a6268;
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.1);
 }
 
-/* ESTILOS PARA EL NUEVO BOTÓN DE SELECCIÓN DE IMAGEN */
+.boton-volver:active {
+    transform: translateY(2px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    filter: brightness(0.95);
+}
+
 .btn-seleccionar-imagen {
   display: inline-block;
   background-color: #007bff;
@@ -161,22 +396,49 @@ input[type="file"] {
   cursor: pointer;
   margin-bottom: 10px;
   font-size: 16px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .btn-seleccionar-imagen:hover {
   background-color: #0056b3;
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.1);
 }
 
-/* ESTILOS PARA EL BOTÓN DE LIMPIAR FORMULARIO (antes btn-borrar-individual) */
+.btn-seleccionar-imagen:active {
+  transform: translateY(2px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  filter: brightness(0.95);
+}
+
 .btn-limpiar-formulario {
   background-color: #6c757d;
-}
-.btn-limpiar-formulario:hover {
-  background-color: #5a6268;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* ESTILOS PARA EL BOTÓN DE BORRAR IMAGEN (en tarjetas de producto dinámicas) */
+.btn-limpiar-formulario:hover {
+  background-color: #5a6268;
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.1);
+}
+
+.btn-limpiar-formulario:active {
+  transform: translateY(2px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  filter: brightness(0.95);
+}
+
 .btn-borrar-producto {
   background-color: #dc3545;
   color: white;
@@ -187,32 +449,50 @@ input[type="file"] {
   margin-top: 5px;
   margin-bottom: 10px;
   font-size: 14px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
 .btn-borrar-producto:hover {
   background-color: #c82333;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.1);
 }
 
-/* NUEVO: Estilo para el botón de editar producto */
+.btn-borrar-producto:active {
+  transform: translateY(1px) scale(1.02);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  filter: brightness(0.95);
+}
+
 .btn-editar-producto {
-  background-color: #007bff; /* Similar al de seleccionar imagen */
+  background-color: #007bff;
   color: white;
   padding: 8px 12px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 5px;
-  margin-right: 5px; /* Espacio entre editar y borrar */
+  margin-right: 5px;
   font-size: 14px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
 .btn-editar-producto:hover {
   background-color: #0056b3;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.1);
 }
 
-/* CONTENEDOR DE LA CABECERA DEL INVENTARIO (ahora solo para acciones) */
+.btn-editar-producto:active {
+  transform: translateY(1px) scale(1.02);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  filter: brightness(0.95);
+}
+
 .inventory-header {
     display: flex;
     justify-content: flex-start;
@@ -225,7 +505,6 @@ input[type="file"] {
     border-bottom: 1px solid #ccc;
 }
 
-/* Estilos para el grupo de acciones (búsqueda y añadir producto) */
 .inventory-actions-group {
     display: flex;
     flex-wrap: wrap;
@@ -234,15 +513,13 @@ input[type="file"] {
     flex-shrink: 0;
 }
 
-/* NUEVO ESTILO: Contenedor para agrupar las secciones de búsqueda y resumen verticalmente */
 .search-summary-group {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Espacio entre la tarjeta de búsqueda y la de resumen */
-    align-self: flex-start; /* Para que se alinee con el formulario de añadir producto */
+    gap: 20px;
+    align-self: flex-start;
 }
 
-/* Nuevo estilo para la sección de búsqueda */
 .search-section {
     padding: 20px;
     border-radius: 8px;
@@ -272,6 +549,13 @@ input[type="file"] {
     border-radius: 4px;
     width: 180px;
     box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#inputBuscarProducto:focus {
+    outline: none;
+    border-color: #28a745;
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
 }
 
 .btn-buscar {
@@ -282,11 +566,21 @@ input[type="file"] {
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .btn-buscar:hover {
     background-color: #218838;
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.1);
+}
+
+.btn-buscar:active {
+    transform: translateY(2px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    filter: brightness(0.95);
 }
 
 .btn-limpiar-busqueda {
@@ -297,21 +591,29 @@ input[type="file"] {
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .btn-limpiar-busqueda:hover {
     background-color: #5a6268;
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.1);
 }
 
-/* Ajuste para el formulario de producto nuevo */
+.btn-limpiar-busqueda:active {
+    transform: translateY(2px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    filter: brightness(0.95);
+}
+
 .formulario-producto-nuevo {
     margin: 0;
     flex-shrink: 0;
     align-self: flex-start;
 }
 
-/* NUEVO: Estilos para la tarjeta de resumen del inventario */
 .inventory-summary-card {
     padding: 20px;
     border-radius: 8px;
@@ -322,6 +624,12 @@ input[type="file"] {
     align-self: flex-start;
     text-align: center;
     max-width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.inventory-summary-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 .inventory-summary-card h2 {
@@ -331,13 +639,12 @@ input[type="file"] {
 }
 
 .summary-count {
-    font-size: 3em; /* Para que el número se vea grande */
+    font-size: 3em;
     font-weight: bold;
-    color: #007bff; /* Color distintivo */
+    color: #007bff;
     margin: 0;
 }
 
-/* NUEVOS ESTILOS PARA LA SECCIÓN DE EXPORTACIÓN */
 .export-section {
     padding: 20px;
     border-radius: 8px;
@@ -352,60 +659,122 @@ input[type="file"] {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 150px; /* Asegura una altura similar a otras tarjetas */
+    min-height: 150px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.export-section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 .btn-exportar {
-    background-color: #17a2b8; /* Un color distintivo para exportar */
+    background-color: #28a745;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
     font-size: 1em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .btn-exportar:hover {
-    background-color: #138496;
+    background-color: #218838;
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.1);
 }
 
-/* --- NUEVOS ESTILOS PARA LA PANTALLA DE LOGIN --- */
-#pantalla-login, #pantalla-registro {
+.btn-exportar:active {
+    transform: translateY(2px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    filter: brightness(0.95);
+}
+
+/* --- NUEVOS ESTILOS PARA LA PANTALLA DE LOGIN CON ANILLO DINÁMICO --- */
+#pantalla-login {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   width: 100vw;
-  background-color: #f0f2f5; /* Fondo suave */
+  background: linear-gradient(135deg, #1a2332 0%, #2d3e50 100%);
 }
 
+.login-ring-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  height: 700px;
+}
+
+.animated-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 60%;
+  background: 
+    repeating-conic-gradient(
+      from 0deg,
+      #51666a 0deg 6deg,
+      #7f8b8f 6deg 8deg,
+      transparent 9deg 18deg
+    );
+  animation: rotateRing 6s linear infinite;
+}
+
+/* MODIFICADO: Tarjeta de login con imagen de fondo y overlay */
 .login-card {
-  background-color: white;
+  position: relative;
+  z-index: 10;
+  width: 300px;
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   gap: 15px;
-  width: 300px;
   text-align: center;
+  animation: slideIn 0.5s ease;
+  
+  /* Fondo con imagen y overlay para legibilidad */
+  background: 
+ linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.00)),
+    url(https://w0.peakpx.com/wallpaper/1011/312/HD-wallpaper-welcome-card-word-blue-black.jpg) 
+    center/cover no-repeat;
+  
+  /* Asegurar que el texto sea legible */
+  color: #fbfafc;
 }
 
 .login-card h1 {
-  font-size: 3em; /* Más pequeño para el login */
-  margin-bottom: 25px;
-  color: #271044;
+  font-size: 4em;
+  margin-bottom: 45px;
+  color: #d5d0dc;
 }
 
+/* Asegurar que los inputs y botones mantengan contraste */
 .login-card input {
   padding: 12px 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1em;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
+.login-card input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Asegurar que los botones tengan buen contraste */
 .btn-auth {
   background-color: #007bff;
   color: white;
@@ -415,17 +784,32 @@ input[type="file"] {
   cursor: pointer;
   font-size: 1.1em;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .btn-auth:hover {
   background-color: #0056b3;
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.1);
 }
 
+.btn-auth:active {
+  transform: translateY(2px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  filter: brightness(0.95);
+}
+
+/* Asegurar que el mensaje de autenticación sea legible */
 .auth-message {
   margin-top: 15px;
   font-size: 0.9em;
   color: #dc3545;
+  animation: fadeIn 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 8px;
+  border-radius: 5px;
 }
 
 .auth-message.success {
@@ -438,9 +822,36 @@ input[type="file"] {
 
 /* Estilo para el botón de cerrar sesión en pantalla de inicio */
 #btnLogout {
-    margin-top: 20px; /* Espacio del botón de volver */
+    margin-top: 20px;
     background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
+
 #btnLogout:hover {
     background-color: #5a6268;
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.1);
+}
+
+#btnLogout:active {
+    transform: translateY(2px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    filter: brightness(0.95);
+}
+
+/* Estilo para pantalla de registro */
+#pantalla-registro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #1a2332 0%, #2d3e50 100%);
 }

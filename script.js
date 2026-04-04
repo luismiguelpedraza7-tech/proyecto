@@ -192,7 +192,7 @@ function renderProducts(productsToRender = inventory) {
         nuevaTarjeta.querySelector(".producto-imagen").src = product.imagen;
         nuevaTarjeta.querySelector(".producto-imagen").alt = `Imagen de ${product.nombre}`;
         nuevaTarjeta.querySelector(".producto-nombre").textContent = product.nombre;
-        nuevaTarjeta.querySelector(".producto-precio").textContent = `$${product.precio.toFixed(2)}`;
+        nuevaTarjeta.querySelector(".producto-precio").textContent = `$${product.precio}`;
         nuevaTarjeta.querySelector(".producto-cantidad").textContent = `Unidades disponibles: ${product.cantidad}`;
 
         contenedorProductos.appendChild(nuevaTarjeta);
