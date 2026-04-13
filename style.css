@@ -1,20 +1,46 @@
+:root {
+  --primary-bg-color: #f9f9f9;
+  --secondary-bg-color: rgba(255, 255, 255, 0.9);
+  --card-bg-color: rgba(255, 255, 255, 0.5);
+  --text-color-dark: #353937;
+  --text-color-light: #f5f1f1;
+  --auth-btn-bg: #051a31;
+  --auth-btn-hover-bg: #1b528d;
+  --add-btn-bg: #48a4aa;
+  --add-btn-hover-bg: #87fafa;
+  --delete-btn-bg: #dc3545;
+  --delete-btn-hover-bg: #851924;
+  --edit-btn-bg: #007bff;
+  --edit-btn-hover-bg: #294461;
+  --search-btn-bg: #28a745;
+  --search-btn-hover-bg: #256978;
+  --clear-search-btn-bg: #2b6292;
+  --clear-search-btn-hover-bg: #cc5c5a;
+  --export-btn-bg: #2da267;
+  --export-btn-hover-bg: #22787e;
+  --back-btn-bg: #e8846e;
+  --back-btn-hover-bg: #5a6268;
+  --primary-font-color: #0c566c;
+  --secondary-font-color: #ccbbbb;
+  --inventory-title-color: #fafcfd;
+}
+
 body {
   font-family: Arial, sans-serif;
   text-align: center;
   margin: 0;
+  background-color: #eee;
 }
 
-/* Base styles for all h1s */
 h1 {
   font-size: 100px;
   font-family:'Pacifico', cursive;
   font-weight: bold;
   font-style: italic;
-  color: #0c566c;
+  color: var(--primary-font-color);
   text-align: center;
 }
 
-/* ESTILOS PARA LA PANTALLA DE INICIO CON FONDO */
 #pantalla-inicio {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://img.freepik.com/vector-premium/tecnologia-digital-compras-linea-icono-sobre-fondo-azul-marketing-tiendas-linea-comercio-electronico_252172-219.jpg);
     background-size: cover;
@@ -31,11 +57,10 @@ h1 {
     box-sizing: border-box;
 }
 
-/* Ajustes específicos para el h1 de la pantalla de inicio */
 #pantalla-inicio .title {
   margin-bottom: 30px;
   margin-top: 3em;
-  color: #ccbbbb;
+  color: var(--secondary-font-color);
   text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9);
   font-size: 100px;
   font-family:'Pacifico', cursive;
@@ -44,7 +69,6 @@ h1 {
   line-height: 1.2;
 }
 
-/* NUEVOS ESTILOS PARA EL FONDO DE PANTALLA DE INVENTARIO Y SUS ELEMENTOS */
 #pantalla-INVENTARIO {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://image.slidesdocs.com/responsive-images/background/website-mobile-app-explore-the-world-of-virtual-shopping-with-digital-marketing-powerpoint-background_bb972eee09__960_540.jpg);
     background-size: cover;
@@ -57,10 +81,9 @@ h1 {
     text-align: center;
 }
 
-/* Ajustes específicos para los títulos dentro de la pantalla de inventario */
 #pantalla-INVENTARIO h1 {
     font-size: 80px;
-    color: #fafcfd;
+    color: var(--inventory-title-color);
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
     margin-top: 20px;
     margin-bottom: 25px;
@@ -70,7 +93,6 @@ h1 {
     line-height: 1.2;
 }
 
-/* General H2 para el inventario, ajustado para legibilidad en fondo oscuro */
 #pantalla-INVENTARIO h2 {
     color: #E0E0E0;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
@@ -78,7 +100,6 @@ h1 {
     margin-bottom: 15px;
 }
 
-/* FIX: Se ha aumentado la especificidad del selector para que el color #ebf6ec prevalezca */
 #pantalla-INVENTARIO #inventory-products-title {
     font-size: 3em;
     color: #edefed;
@@ -88,37 +109,51 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-/* Estilos para las tarjetas de acciones (ahora transparentes con blur) */
 #pantalla-INVENTARIO .tarjeta-input-producto,
 #pantalla-INVENTARIO .search-section,
 #pantalla-INVENTARIO .inventory-summary-card,
 #pantalla-INVENTARIO .export-section {
     background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border:none;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(8px);
     border-radius: 15px;
 }
 
-/* Mantener .tarjeta-producto con su fondo original para visibilidad de productos */
 #pantalla-INVENTARIO .tarjeta-producto {
-    background-color: rgba(255, 255, 255, 0.85);
-    border-color: rgba(221, 221, 221, 0.7);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    color: #353937;
-    backdrop-filter: blur(3px);
+    background-color: var(--card-bg-color); 
+    border-color: rgba(200, 200, 200, 0.7); 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); 
+    color: var(--text-color-dark); 
+    backdrop-filter: blur(5px); 
 }
 
 #pantalla-INVENTARIO .tarjeta-producto:hover {
     transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.8); 
 }
 
-/* Ajustar colores de texto y sombras para legibilidad en tarjetas transparentes */
+.tarjeta-producto img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 2px solid rgba(100, 100, 100, 0.5); 
+    display: block;
+    margin: 0 auto 10px auto;
+    border-radius: 10px;
+}
+
+.tarjeta-producto h3,
+.tarjeta-producto p {
+    color: #0d0d0d; 
+    text-shadow: none; 
+    
+}
+
 #pantalla-INVENTARIO .tarjeta-input-producto h2,
 #pantalla-INVENTARIO .search-section h2,
 #pantalla-INVENTARIO .inventory-summary-card h2 {
-    color: #E0E0E0;
+    color: #eee2e2;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
     margin-top: 0;
     margin-bottom: 15px;
@@ -127,13 +162,11 @@ h1 {
     text-align: center;
 }
 
-/* Asegurar que el color de los labels dentro de la tarjeta de input sea oscuro */
 #pantalla-INVENTARIO .tarjeta-input-producto label {
-    color: #E0E0E0;
+    color: var(--text-color-light);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
-/* Color para el contador de productos en la tarjeta de resumen */
 #pantalla-INVENTARIO .inventory-summary-card .summary-count {
     font-size: 3em;
     font-weight: bold;
@@ -142,33 +175,32 @@ h1 {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
 }
 
-/* Ajustar los inputs dentro de las tarjetas de acciones para tener fondo sólido */
 #pantalla-INVENTARIO .tarjeta-input-producto input[type="text"],
 #pantalla-INVENTARIO .tarjeta-input-producto input[type="number"],
 #pantalla-INVENTARIO .search-input-group input[type="text"] {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: var(--secondary-bg-color);
     border: 1px solid rgba(0, 0, 0, 0.2);
-    color: #333;
+    color: var(--text-color-dark);
 }
 
-/* El fondo del header ahora es transparente para que el fondo de la pantalla se vea a través */
 #pantalla-INVENTARIO .inventory-header {
     background-color: transparent;
     border-bottom: 1px solid rgba(204, 204, 204, 0.7);
 }
 
-/* Ajustes para el botón de volver para que se vea bien sobre el fondo */
+
 #pantalla-INVENTARIO .boton-volver {
-    background-color: rgba(232, 132, 110, 0.85);
+    background-color: var(--back-btn-bg);
     color: white;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     margin-top: 40px;
 }
+
 #pantalla-INVENTARIO .boton-volver:hover {
-    background-color: #c86350;
+    background-color: var(--back-btn-hover-bg);
 }
 
-/* ANIMACIONES KEYFRAMES */
+/* ANIMACIONES */
 @keyframes hoverBoton {
   0% {
     transform: translateY(0) scale(1);
@@ -250,6 +282,7 @@ input[type="file"] {
 }
 
 .contenedor-productos {
+    background-color: transparent;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -269,7 +302,7 @@ input[type="file"] {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ffffff;
+    background-color: transparent;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -278,18 +311,9 @@ input[type="file"] {
     box-shadow: 0 12px 24px rgba(0,0,0,0.25);
 }
 
-.tarjeta-producto img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border: 2px solid #aad6d6;
-    display: block;
-    margin: 0 auto 10px auto;
-    border-radius: 10px;
-}
 
 .tarjeta-input-producto h2 {
-    color: #353937;
+    color: var(--text-color-dark);
     margin-top: 0;
     margin-bottom: 15px;
     font-size: 1.8em;
@@ -301,7 +325,7 @@ input[type="file"] {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    background-color: #f9f9f9;
+    background-color: var(--primary-bg-color);
     width: fit-content;
     max-width: 250px;
     display: flex;
@@ -313,7 +337,7 @@ input[type="file"] {
 .tarjeta-input-producto label {
     margin-top: 10px;
     font-weight: bold;
-    color: #353937;
+    color: var(--text-color-dark);
 }
 
 .tarjeta-input-producto input[type="text"],
@@ -330,12 +354,12 @@ input[type="file"] {
 .tarjeta-input-producto input[type="text"]:focus,
 .tarjeta-input-producto input[type="number"]:focus {
     outline: none;
-    border-color: #48a4aa;
-    box-shadow: 0 0 8px rgba(72, 164, 170, 0.5);
+    border-color: #1b1b1b;
+    box-shadow: 0 0 8px rgba(87, 107, 109, 0.5);
 }
 
 .btn-añadir {
-    background-color: #48a4aa;
+    background-color: var(--add-btn-bg);
     color: rgb(18, 17, 18);
     padding: 10px 20px;
     border: none;
@@ -349,7 +373,7 @@ input[type="file"] {
 
 .btn-añadir:hover {
     opacity: 0.9;
-    background-color: #47c8c8;
+    background-color: var(--add-btn-hover-bg);
     transform: translateY(-6px) scale(1.05);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     filter: brightness(1.1);
@@ -362,7 +386,7 @@ input[type="file"] {
 }
 
 .boton-volver {
-    background-color: #e8846e;
+    background-color: var(--back-btn-bg);
     color: white;
     padding: 10px 20px;
     border: none;
@@ -375,7 +399,7 @@ input[type="file"] {
 }
 
 .boton-volver:hover {
-    background-color: #5a6268;
+    background-color: var(--back-btn-hover-bg);
     transform: translateY(-6px) scale(1.05);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     filter: brightness(1.1);
@@ -389,7 +413,7 @@ input[type="file"] {
 
 .btn-seleccionar-imagen {
   display: inline-block;
-  background-color: #007bff;
+  background-color: var(--edit-btn-bg);
   color: white;
   padding: 10px 15px;
   border-radius: 5px;
@@ -402,7 +426,7 @@ input[type="file"] {
 }
 
 .btn-seleccionar-imagen:hover {
-  background-color: #0056b3;
+  background-color: var(--edit-btn-hover-bg);
   transform: translateY(-6px) scale(1.05);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   filter: brightness(1.1);
@@ -440,7 +464,7 @@ input[type="file"] {
 }
 
 .btn-borrar-producto {
-  background-color: #dc3545;
+  background-color: var(--delete-btn-bg);
   color: white;
   padding: 8px 12px;
   border: none;
@@ -454,7 +478,7 @@ input[type="file"] {
 }
 
 .btn-borrar-producto:hover {
-  background-color: #c82333;
+  background-color: var(--delete-btn-hover-bg);
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   filter: brightness(1.1);
@@ -467,7 +491,7 @@ input[type="file"] {
 }
 
 .btn-editar-producto {
-  background-color: #007bff;
+  background-color: var(--edit-btn-bg);
   color: white;
   padding: 8px 12px;
   border: none;
@@ -481,7 +505,7 @@ input[type="file"] {
 }
 
 .btn-editar-producto:hover {
-  background-color: #0056b3;
+  background-color: var(--edit-btn-hover-bg);
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   filter: brightness(1.1);
@@ -524,14 +548,14 @@ input[type="file"] {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    background-color: #f9f9f9;
+    background-color: var(--primary-bg-color);
     border: 1px solid #ddd;
     flex-shrink: 0;
     align-self: flex-start;
 }
 
 .search-section h2 {
-    color: #353937;
+    color: var(--text-color-dark);
     margin-bottom: 15px;
     font-size: 1.5em;
 }
@@ -554,12 +578,12 @@ input[type="file"] {
 
 #inputBuscarProducto:focus {
     outline: none;
-    border-color: #28a745;
+    border-color: var(--search-btn-bg);
     box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
 }
 
 .btn-buscar {
-    background-color: #28a745;
+    background-color: var(--search-btn-bg);
     color: white;
     padding: 8px 15px;
     border: none;
@@ -571,7 +595,7 @@ input[type="file"] {
 }
 
 .btn-buscar:hover {
-    background-color: #218838;
+    background-color: var(--search-btn-hover-bg);
     transform: translateY(-6px) scale(1.05);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     filter: brightness(1.1);
@@ -584,7 +608,7 @@ input[type="file"] {
 }
 
 .btn-limpiar-busqueda {
-    background-color: #6c757d;
+    background-color: var(--clear-search-btn-bg);
     color: white;
     padding: 8px 15px;
     border: none;
@@ -596,7 +620,7 @@ input[type="file"] {
 }
 
 .btn-limpiar-busqueda:hover {
-    background-color: #5a6268;
+    background-color: var(--clear-search-btn-hover-bg);
     transform: translateY(-6px) scale(1.05);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     filter: brightness(1.1);
@@ -618,7 +642,7 @@ input[type="file"] {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    background-color: #f9f9f9;
+    background-color: var(--primary-bg-color);
     border: 1px solid #ddd;
     flex-shrink: 0;
     align-self: flex-start;
@@ -633,7 +657,7 @@ input[type="file"] {
 }
 
 .inventory-summary-card h2 {
-    color: #353937;
+    color: #f6f7f6;
     margin-bottom: 15px;
     font-size: 1.5em;
 }
@@ -641,7 +665,7 @@ input[type="file"] {
 .summary-count {
     font-size: 3em;
     font-weight: bold;
-    color: #007bff;
+    color: #fafbfc;
     margin: 0;
 }
 
@@ -649,7 +673,7 @@ input[type="file"] {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    background-color: #f9f9f9;
+    background-color: var(--primary-bg-color);
     border: 1px solid #ddd;
     flex-shrink: 0;
     align-self: flex-start;
@@ -669,7 +693,7 @@ input[type="file"] {
 }
 
 .btn-exportar {
-    background-color: #28a745;
+    background-color: var(--export-btn-bg);
     color: white;
     padding: 10px 20px;
     border: none;
@@ -682,7 +706,7 @@ input[type="file"] {
 }
 
 .btn-exportar:hover {
-    background-color: #218838;
+    background-color: var(--export-btn-hover-bg);
     transform: translateY(-6px) scale(1.05);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     filter: brightness(1.1);
@@ -694,14 +718,18 @@ input[type="file"] {
     filter: brightness(0.95);
 }
 
-/* --- NUEVOS ESTILOS PARA LA PANTALLA DE LOGIN CON ANILLO DINÁMICO --- */
+/* --- ESTILOS PARA LA PANTALLA DE LOGIN CON ANILLO DINÁMICO --- */
 #pantalla-login {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   width: 100vw;
-  background: linear-gradient(135deg, #1a2332 0%, #2d3e50 100%);
+   background: 
+ linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.00)),
+    url(https://preview.redd.it/futuristic-city-at-dusk-4k-v0-0l8pcbaab7n51.jpg?auto=webp&s=cd5621e05c5bbe95fb4e97f685f7dedae0e41d87) 
+    center/cover no-repeat;
+  
 }
 
 .login-ring-container {
@@ -721,14 +749,13 @@ input[type="file"] {
   background: 
     repeating-conic-gradient(
       from 0deg,
-      #51666a 0deg 6deg,
-      #7f8b8f 6deg 8deg,
+      #2f3031 0deg 6deg,
+      #1a3943 6deg 8deg,
       transparent 9deg 18deg
     );
-  animation: rotateRing 6s linear infinite;
+  animation: rotateRing 13s linear infinite;
 }
 
-/* MODIFICADO: Tarjeta de login con imagen de fondo y overlay */
 .login-card {
   position: relative;
   z-index: 10;
@@ -742,13 +769,11 @@ input[type="file"] {
   text-align: center;
   animation: slideIn 0.5s ease;
   
-  /* Fondo con imagen y overlay para legibilidad */
   background: 
  linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.00)),
     url(https://w0.peakpx.com/wallpaper/1011/312/HD-wallpaper-welcome-card-word-blue-black.jpg) 
     center/cover no-repeat;
   
-  /* Asegurar que el texto sea legible */
   color: #fbfafc;
 }
 
@@ -758,14 +783,13 @@ input[type="file"] {
   color: #d5d0dc;
 }
 
-/* Asegurar que los inputs y botones mantengan contraste */
 .login-card input {
   padding: 12px 15px;
-  border: 1px solid #ccc;
+  border: 1px solid #f8f9f9;
   border-radius: 5px;
   font-size: 1em;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: var(--secondary-bg-color);
 }
 
 .login-card input:focus {
@@ -774,10 +798,9 @@ input[type="file"] {
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
 }
 
-/* Asegurar que los botones tengan buen contraste */
 .btn-auth {
-  background-color: #007bff;
-  color: white;
+  background-color: var(--auth-btn-bg);
+  color: rgb(253, 250, 250);
   padding: 12px 20px;
   border: none;
   border-radius: 5px;
@@ -789,7 +812,7 @@ input[type="file"] {
 }
 
 .btn-auth:hover {
-  background-color: #0056b3;
+  background-color: var(--auth-btn-hover-bg);
   transform: translateY(-6px) scale(1.05);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   filter: brightness(1.1);
@@ -801,7 +824,6 @@ input[type="file"] {
   filter: brightness(0.95);
 }
 
-/* Asegurar que el mensaje de autenticación sea legible */
 .auth-message {
   margin-top: 15px;
   font-size: 0.9em;
@@ -820,7 +842,6 @@ input[type="file"] {
     color: #dc3545;
 }
 
-/* Estilo para el botón de cerrar sesión en pantalla de inicio */
 #btnLogout {
     margin-top: 20px;
     background-color: #6c757d;
@@ -841,12 +862,12 @@ input[type="file"] {
 }
 
 #btnLogout:active {
+    background-color: #5a6268;
     transform: translateY(2px) scale(1.02);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     filter: brightness(0.95);
 }
 
-/* Estilo para pantalla de registro */
 #pantalla-registro {
   display: flex;
   justify-content: center;
@@ -854,4 +875,39 @@ input[type="file"] {
   min-height: 100vh;
   width: 100vw;
   background: linear-gradient(135deg, #1a2332 0%, #2d3e50 100%);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  h1, #pantalla-inicio .title, #pantalla-INVENTARIO h1 {
+    font-size: 3em; 
+  }
+  .login-card {
+    width: 90%; 
+    padding: 20px;
+  }
+  .login-ring-container {
+    width: 90vw;
+    height: 90vw;
+  }
+  .botones-container .boton {
+    font-size: 2em;
+    padding: 20px 15px;
+  }
+  .inventory-header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .inventory-actions-group, .search-summary-group {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .tarjeta-input-producto, .search-section, .inventory-summary-card, .export-section {
+    width: 90%;
+    max-width: none;
+  }
+  .contenedor-productos {
+    justify-content: center;
+  }
 }
