@@ -214,25 +214,30 @@ async function handleSaveProduct() {
 async function handleLoginWithGoogle() {
     const { error } = await supabaseClient.auth.signInWithOAuth({
         provider: 'google',
-        options: { redirectTo: window.location.origin } // Redirige a la URL actual después de la autenticación
+        options: { redirectTo: "https://luismiguelpedraza7-tech.github.io/" } // CORREGIDO: Usar 'redirectTo'
     });
     if (error) {
+        console.error('Error al iniciar sesión con Google:', error);
         displayAuthMessage(authMessageLogin, error.message, 'error');
     } else {
         // La redirección manejará la pantalla, checkAuthStatus se ejecutará al cargar la página de nuevo
+        console.log('Redirigiendo a Google para autenticación...');
     }
 }
 
 async function handleLoginSubmit(event) {
     event.preventDefault();
+    console.log("Intento de inicio de sesión...");
     const email = inputEmailLogin.value.trim();
     const password = inputPasswordLogin.value;
 
     const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
 
     if (error) {
+        console.error("Error de inicio de sesión:", error);
         displayAuthMessage(authMessageLogin, "Credenciales incorrectas o usuario no encontrado.", 'error');
     } else {
+        console.log("Inicio de sesión exitoso.");
         showScreen('pantalla-inicio');
         // loadInventory() se llamará al ir a pantalla-INVENTARIO desde pantalla-inicio
     }
@@ -240,14 +245,17 @@ async function handleLoginSubmit(event) {
 
 async function handleRegistrationSubmit(event) {
     event.preventDefault();
+    console.log("Intento de registro...");
     const email = regEmail.value.trim();
     const password = regPassword.value;
 
     const { error } = await supabaseClient.auth.signUp({ email, password });
 
     if (error) {
+        console.error("Error de registro:", error);
         displayAuthMessage(authMessageRegistro, error.message, 'error');
     } else {
+        console.log("Registro exitoso, verificación de email enviada.");
         displayAuthMessage(authMessageRegistro, "¡Registro exitoso! Por favor, verifica tu email para confirmar y luego inicia sesión.", 'success');
         setTimeout(() => showScreen('pantalla-login'), 3000); // Dar más tiempo al usuario para leer el mensaje
     }
@@ -256,7 +264,7 @@ async function handleRegistrationSubmit(event) {
 async function handleLogout() {
     const { error } = await supabaseClient.auth.signOut();
     if (!error) {
-        inventory = [];
+        inventory = []; // Limpiar el inventario local al cerrar sesión
         showScreen('pantalla-login');
         alert("Sesión cerrada correctamente.");
     } else {
@@ -275,8 +283,14 @@ btnLogout.addEventListener("click", handleLogout);
 
 // Eventos de navegación y UI (Tus originales)
 btnInventario.addEventListener("click", (e) => { e.preventDefault(); showScreen('pantalla-INVENTARIO'); });
-btnRegistrarseLogin.addEventListener("click", () => showScreen('pantalla-registro'));
-btnVolverLoginRegistro.addEventListener("click", () => showScreen('pantalla-login'));
+btnRegistrarseLogin.addEventListener("click", () => {
+    console.log("Click en 'Crear Cuenta', yendo a pantalla de registro.");
+    showScreen('pantalla-registro');
+});
+btnVolverLoginRegistro.addEventListener("click", () => {
+    console.log("Click en 'Volver al Login', yendo a pantalla de login.");
+    showScreen('pantalla-login');
+});
 if (btnVolverInicio) btnVolverInicio.addEventListener("click", () => showScreen('pantalla-inicio')); // Condicional por si el elemento no existe
 
 // Manejo de imagen y búsqueda (Tus originales se mantienen)
