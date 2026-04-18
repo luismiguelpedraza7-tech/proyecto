@@ -214,7 +214,7 @@ async function handleSaveProduct() {
 async function handleLoginWithGoogle() {
     const { error } = await supabaseClient.auth.signInWithOAuth({
         provider: 'google',
-        options: { redirectTo: "https://luismiguelpedraza7-tech.github.io/" } // CORREGIDO: Usar 'redirectTo'
+        options: { redirectTo: "https://luismiguelpedraza7-tech.github.io/proyecto/" } // CORREGIDO: Usar 'redirectTo'
     });
     if (error) {
         console.error('Error al iniciar sesión con Google:', error);
