@@ -1,6 +1,6 @@
 // --- CONFIGURACIÓN DE SUPABASE ---
 const SB_URL = "https://jwmzmnohrwbazllozapr.supabase.co";
-const SB_KEY = "sb_publishable_5mK5uK1cVY0d971kr75oRA_P8kpfLrl"; 
+const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bXptbm9ocndiYXpsbG96YXByIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU4NDgwNDAsImV4cCI6MjA5MTQyNDA0MH0.MazrEtgRzP34N8cbiytA_YWooLx7cdHswLAG4isA7Yc"; 
 // Asegúrate de que la librería de Supabase esté cargada antes de este script
 const supabaseClient = supabase.createClient(SB_URL, SB_KEY);
 
