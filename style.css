@@ -868,15 +868,6 @@ input[type="file"] {
     filter: brightness(0.95);
 }
 
-#pantalla-registro {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  width: 100vw;
-  background: linear-gradient(135deg, #1a2332 0%, #2d3e50 100%);
-}
-
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   h1, #pantalla-inicio .title, #pantalla-INVENTARIO h1 {

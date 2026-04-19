@@ -6,18 +6,7 @@ const supabaseClient = supabase.createClient(SB_URL, SB_KEY);
 
 // Referencias a elementos del DOM existentes
 const pantallaLogin = document.querySelector("#pantalla-login");
-const inputEmailLogin = document.querySelector("#inputEmailLogin");
-const inputPasswordLogin = document.querySelector("#inputPasswordLogin");
-const btnRegistrarseLogin = document.querySelector("#btnRegistrarseLogin");
-const btnIniciarSesionLogin = document.querySelector("#btnIniciarSesionLogin");
 const authMessageLogin = document.querySelector("#authMessageLogin");
-const pantallaRegistro = document.querySelector("#pantalla-registro");
-const registroForm = document.querySelector("#registroForm");
-const regEmail = document.querySelector("#regEmail");
-const regPassword = document.querySelector("#regPassword");
-const btnConfirmarRegistro = document.querySelector("#btnConfirmarRegistro");
-const btnVolverLoginRegistro = document.querySelector("#btnVolverLoginRegistro");
-const authMessageRegistro = document.querySelector("#authMessageRegistro");
 const btnInventario = document.querySelector("#btn-Inventario");
 const pantallaInicio = document.querySelector("#pantalla-inicio");
 const pantallaInventario = document.querySelector("#pantalla-INVENTARIO");
@@ -83,7 +72,6 @@ function displayAuthMessage(element, message, type = '') {
 // Función para mostrar pantallas (Se mantiene)
 function showScreen(screenId) {
     pantallaLogin.style.display = 'none';
-    pantallaRegistro.style.display = 'none';
     pantallaInicio.style.display = 'none';
     pantallaInventario.style.display = 'none';
 
@@ -91,10 +79,6 @@ function showScreen(screenId) {
         case 'pantalla-login':
             pantallaLogin.style.display = 'flex'; 
             displayAuthMessage(authMessageLogin, ''); 
-            break;
-        case 'pantalla-registro':
-            pantallaRegistro.style.display = 'flex'; 
-            displayAuthMessage(authMessageRegistro, '');
             break;
         case 'pantalla-inicio':
             pantallaInicio.style.display = 'block';
@@ -214,7 +198,7 @@ async function handleSaveProduct() {
 async function handleLoginWithGoogle() {
     const { error } = await supabaseClient.auth.signInWithOAuth({
         provider: 'google',
-        options: { redirectTo: "https://luismiguelpedraza7-tech.github.io/proyecto/" } // CORREGIDO: Usar 'redirectTo'
+        options: { redirectTo: "https://luismiguelpedraza7-tech.github.io/proyecto/" } 
     });
     if (error) {
         console.error('Error al iniciar sesión con Google:', error);
@@ -222,42 +206,6 @@ async function handleLoginWithGoogle() {
     } else {
         // La redirección manejará la pantalla, checkAuthStatus se ejecutará al cargar la página de nuevo
         console.log('Redirigiendo a Google para autenticación...');
-    }
-}
-
-async function handleLoginSubmit(event) {
-    event.preventDefault();
-    console.log("Intento de inicio de sesión...");
-    const email = inputEmailLogin.value.trim();
-    const password = inputPasswordLogin.value;
-
-    const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
-
-    if (error) {
-        console.error("Error de inicio de sesión:", error);
-        displayAuthMessage(authMessageLogin, "Credenciales incorrectas o usuario no encontrado.", 'error');
-    } else {
-        console.log("Inicio de sesión exitoso.");
-        showScreen('pantalla-inicio');
-        // loadInventory() se llamará al ir a pantalla-INVENTARIO desde pantalla-inicio
-    }
-}
-
-async function handleRegistrationSubmit(event) {
-    event.preventDefault();
-    console.log("Intento de registro...");
-    const email = regEmail.value.trim();
-    const password = regPassword.value;
-
-    const { error } = await supabaseClient.auth.signUp({ email, password });
-
-    if (error) {
-        console.error("Error de registro:", error);
-        displayAuthMessage(authMessageRegistro, error.message, 'error');
-    } else {
-        console.log("Registro exitoso, verificación de email enviada.");
-        displayAuthMessage(authMessageRegistro, "¡Registro exitoso! Por favor, verifica tu email para confirmar y luego inicia sesión.", 'success');
-        setTimeout(() => showScreen('pantalla-login'), 3000); // Dar más tiempo al usuario para leer el mensaje
     }
 }
 
@@ -276,21 +224,11 @@ async function handleLogout() {
 // --- EVENT LISTENERS (Se mantienen y se agregan los nuevos) ---
 
 if (btnGoogle) btnGoogle.addEventListener("click", handleLoginWithGoogle);
-btnIniciarSesionLogin.addEventListener('click', handleLoginSubmit);
-registroForm.addEventListener("submit", handleRegistrationSubmit);
 btnGuardarProducto.addEventListener("click", handleSaveProduct);
 btnLogout.addEventListener("click", handleLogout);
 
 // Eventos de navegación y UI (Tus originales)
 btnInventario.addEventListener("click", (e) => { e.preventDefault(); showScreen('pantalla-INVENTARIO'); });
-btnRegistrarseLogin.addEventListener("click", () => {
-    console.log("Click en 'Crear Cuenta', yendo a pantalla de registro.");
-    showScreen('pantalla-registro');
-});
-btnVolverLoginRegistro.addEventListener("click", () => {
-    console.log("Click en 'Volver al Login', yendo a pantalla de login.");
-    showScreen('pantalla-login');
-});
 if (btnVolverInicio) btnVolverInicio.addEventListener("click", () => showScreen('pantalla-inicio')); // Condicional por si el elemento no existe
 
 // Manejo de imagen y búsqueda (Tus originales se mantienen)
@@ -379,14 +317,6 @@ btnLimpiarBusqueda.addEventListener('click', clearSearch);
 
 // Inicialización
 document.addEventListener('DOMContentLoaded', checkAuthStatus);
-
-// Asegúrate de que los campos del formulario de registro se limpien al volver al login
-btnVolverLoginRegistro.addEventListener("click", () => {
-    regEmail.value = '';
-    regPassword.value = '';
-    displayAuthMessage(authMessageRegistro, '');
-    showScreen('pantalla-login');
-});
 
 // Limpiar el formulario de añadir/editar producto
 btnLimpiarFormulario.addEventListener('click', resetFormAndMode);
